@@ -8,6 +8,7 @@ import { formatDateWithTime } from '../../utils/helpers';
 import { serverRequest } from '../../utils/serverRequest';
 import ngStatesObject from '../../utils/ngStatesObject';
 import { AUTH_PROFILE_RESOLVED } from '../../store/types/authTypes';
+import { SET_ERROR, SET_SUCCESS } from "../../store/types/notificationTypes";
 
 const Profile = () => {
 
@@ -36,9 +37,11 @@ const Profile = () => {
         setIsSubmitting(false);
         //dispatch to update user profile in store
         dispatch({ type: AUTH_PROFILE_RESOLVED, payload: response.data.data})
+        dispatch({ type: SET_SUCCESS, payload: "Successful, Profile Updated" });
       }
     } catch (error) {
       setError(error.response.data.message || error.response.data.error);
+      dispatch({ type: SET_ERROR, payload: error });
       setIsSubmitting(false);
     }
   };

@@ -10,7 +10,7 @@ const PrivateRoutes = ({ component: Component, layout:Layout, ...rest }) => {
 
     return(
       <>
-        {isAuthenticated && user && role === 'user'?(
+        {isAuthenticated && user && (role === 'user')?(
           <Layout>
             {user && !user.phone?(
               <Redirect to="/completeregistration"/>

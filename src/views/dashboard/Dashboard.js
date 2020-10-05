@@ -73,13 +73,13 @@ const Dashboard = () => {
                   <VscRequestChanges className="my-auto mx-auto" color="white" size="3rem"/>
                 </div>
                 <div className="text-right">
-                  <h6 className="text-muted">Donated</h6>
+                  <h6 className="text-muted">Donations</h6>
                   <h3>{statistics && statistics.donations}</h3>
                 </div>
               </div>
               <hr/>
               <div className="d-flex justify-content-between align-items-center">
-                <small>Your Total Donation</small>
+                <small>Total Donation</small>
                 <Button variant="danger" as={Link} to="/donation" size="sm">
                   Donate
                 </Button>
@@ -101,8 +101,8 @@ const Dashboard = () => {
               </div>
               <hr/>
               <div className="d-flex justify-content-between align-items-center">
-                <small>Your Total Requests</small>
-                <Button variant="danger" size="sm">
+                <small>Total Requests</small>
+                <Button as={Link} to="/requests" variant="danger" size="sm">
                   Request
                 </Button>
               </div>
@@ -134,7 +134,7 @@ const Dashboard = () => {
               </div>
               <hr/>
               <div className="d-flex justify-content-between align-items-center">
-                <small>Your Last Donation</small>
+                <small>Current Donation</small>
                 <Button variant="danger" as={Link} to={`/donation/${(statistics && statistics.lastDonation && statistics.lastDonation._id) || ''}`} size="sm">
                   Details
                 </Button>

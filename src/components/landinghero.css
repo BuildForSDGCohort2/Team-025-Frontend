@@ -85,6 +85,10 @@
   height: 4rem;
 }
 
+.display-4 {
+  font-size: 3.5rem;
+}
+
 @media (max-width: 575.98px) {
   .hero-box {
     padding-top: 5rem;

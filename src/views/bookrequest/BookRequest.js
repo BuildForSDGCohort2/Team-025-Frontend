@@ -35,7 +35,7 @@ const BookRequest = () => {
       const response = await serverRequest(token).post(endpoint, data);
       if (response.data.status === "success") {
         setIsSubmitting(false);
-        dispatch({ type: SET_SUCCESS, payload: "Successful, Profile Updated" });
+        dispatch({ type: SET_SUCCESS, payload: "Successful, Request Booked" });
         push('/requests')
       }
     } catch (error) {
