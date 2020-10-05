@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
 import { AUTH_CANCELED } from "../store/types/authTypes";
 import { CLEAR_NOTIFICATION } from "../store/types/notificationTypes";
-import 'react-toastify/dist/ReactToastify.css';
 
 const NotificationBar = () => {
 
@@ -14,14 +13,19 @@ const NotificationBar = () => {
   const isMounted = useRef(false);
   const msg = useRef();
 
-	const { error, message } = notification;
+  const { error, message } = notification;
+
 	const errorList = [
     "invalid signature",
     "jwt malformed",
     "auth/id-token-expired",
     "Unauthenticated.",
-    "JWT token has expired, please login to obtain a new one"
+    "Token you provided is invalid",
+    "Token missing, you need a token to have access",
+    "JWT token has expired, please login to obtain a new one",
+    "jwt expired"
   ];
+
 	msg.current = error;
 
 	useEffect(() => {
@@ -37,7 +41,7 @@ const NotificationBar = () => {
 
         toast.error(msg);
 
-				// dispatch({ type: CLEAR_NOTIFICATION });
+				dispatch({ type: CLEAR_NOTIFICATION });
 			}
 		}
 		if (message && isMounted.current) {

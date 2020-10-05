@@ -38,10 +38,10 @@ const Routes = () => {
         <PrivateRoutes exact={true} layout={UserLayout} path="/donation/book" component={BookAppointment}/>
         <PrivateRoutes exact={true} layout={UserLayout} path="/donation/history" component={Appointments}/>
         <PrivateRoutes exact={true} layout={UserLayout} path="/donation/:appointmentId" component={Appointment}/>
-				<PublicRoutes exact={true} layout={UserLayout} path="/requests" component={Requests}/>
-				<PublicRoutes exact={true} layout={UserLayout} path="/requests/book" component={BookRequest}/>
-				<PublicRoutes exact={true} layout={UserLayout} path="/requests/accept/:requestId" component={AcceptRequest}/>
-				<PublicRoutes exact={true} layout={UserLayout} path="/requests/:requestId" component={Request}/>
+				<PrivateRoutes exact={true} layout={UserLayout} path="/requests" component={Requests}/>
+				<PrivateRoutes exact={true} layout={UserLayout} path="/requests/book" component={BookRequest}/>
+				<PrivateRoutes exact={true} layout={UserLayout} path="/requests/accept/:requestId" component={AcceptRequest}/>
+				<PrivateRoutes exact={true} layout={UserLayout} path="/requests/:requestId" component={Request}/>
         <PrivateRoutes exact={true} layout={UserLayout} path="/profile" component={Profile}/>
         <PrivateRoutes exact={true} layout={UserLayout} path="/logout" component={LogOut}/>
 			</Switch>

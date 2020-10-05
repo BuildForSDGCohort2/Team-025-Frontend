@@ -33,9 +33,26 @@ export const formatDateWithTime3 = (date) => {
 }
 
 export const status = (value) => {
+
+  const requestStatus = {
+    DECLINED: 'DECLINED',
+    APPROVED: 'APPROVED',
+    ACCEPTED: 'ACCEPTED',
+    PENDING: 'PENDING',
+    COMPLETED: 'COMPLETED'
+  };
+
   switch (value) {
-    case 'PENDING':
+    case requestStatus.PENDING:
       return (<Badge pill variant="secondary">Pending</Badge>)
+    case requestStatus.ACCEPTED:
+        return (<Badge pill variant="primary">Accepted</Badge>)
+    case requestStatus.APPROVED:
+        return (<Badge pill variant="info">Approved</Badge>)
+    case requestStatus.DECLINED:
+        return (<Badge pill variant="dabger">Declined</Badge>)
+    case requestStatus.COMPLETED:
+      return (<Badge pill variant="success">Completed</Badge>)
     default:
       return (<Badge pill variant="secondary">Pending</Badge>)
   }
