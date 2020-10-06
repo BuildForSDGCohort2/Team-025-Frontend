@@ -7,7 +7,6 @@ import { VscRequestChanges, VscCalendar } from 'react-icons/vsc';
 import { RiBankCardLine } from 'react-icons/ri';
 import { GiWaterDrop } from 'react-icons/gi';
 import {  BiPowerOff } from 'react-icons/bi';
-// import { GrConnectivity } from 'react-icons/gr';
 import './sidebar.css'
 import { Link, NavLink } from 'react-router-dom';
 import { SET_SIDEBAR } from '../store/types/sideBarTypes';
