@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row, Form, Button, Alert, Spinner } from 'react-bootstrap'
 import { AppointmentHistory } from '../../components'
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { serverRequest } from "../../utils/serverRequest";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import ngStatesObject from "../../utils/ngStatesObject";
+import { SET_ERROR, SET_SUCCESS } from "../../store/types/notificationTypes";
 import "react-datepicker/dist/react-datepicker.css";
 
 const BookAppointment = () => {
@@ -20,6 +21,7 @@ const BookAppointment = () => {
   const { register, handleSubmit, watch } = useForm();
 
   const { push } = useHistory();
+  const dispatch = useDispatch();
 
   const { token } = useSelector(state => state.auth);
 
@@ -35,10 +37,12 @@ const BookAppointment = () => {
       const response = await serverRequest(token).post(endpoint, data);
       if (response.data.status === "success") {
         setIsSubmitting(false);
+        dispatch({ type: SET_SUCCESS, payload: "Successful, Appointment Booked" });
         push('/donation/history')
       }
     } catch (error) {
       setError(error.response.data.message || error.response.data.error);
+      dispatch({ type: SET_ERROR, payload: error });
       setIsSubmitting(false);
     }
   };

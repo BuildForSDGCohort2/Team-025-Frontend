@@ -14,6 +14,7 @@ const notificationReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_ERROR: {
       const error = action.payload;
+
 			let setError;
 			if(error.response && error.response.data && error.response.data.error && Object.keys(error.response.data.error)[0]){
         if(typeof error.response.data.error === 'object' && error.response.data.error !== null){

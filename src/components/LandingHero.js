@@ -19,9 +19,9 @@ const LandingHero = () => {
           <Row>
             <Col sm="12" md="5" className="text-center text-md-left">
                 <div className="mt-3 mb-5">
-                  <h1 className="display-4">Help Donate a<br/> Pant Today</h1>
+                  <h1 className="display-4" style={{fontSize: '3.5rem'}}>Help Donate or <br/>Get a Pant Today</h1>
                   <h3 className="mb-4">Everyone could be a hero. <br/>Do something amazing and save lives</h3>
-                  <Button variant="danger" size="lg" as={Link} to="/signup">Donate Now</Button>
+                  <Button variant="danger" size="lg" as={Link} to="/signup">Get Started</Button>
                   <Button className="" variant="link" size="lg">Learn More</Button>
                 </div>
             </Col>

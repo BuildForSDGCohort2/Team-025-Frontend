@@ -3,11 +3,12 @@ import { Alert, Badge, Button, Card, Col, Form, Row, Spinner } from "react-boots
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import map from "../../assets/images/staticmap.png";
 import useRequest from "../../hooks/useRequest";
 import { serverRequest } from "../../utils/serverRequest";
+import { SET_ERROR, SET_SUCCESS } from "../../store/types/notificationTypes";
 
 const AcceptRequest = () => {
   const { isLoading, request } = useRequest();
@@ -20,6 +21,7 @@ const AcceptRequest = () => {
 
   const { push } = useHistory();
   const { requestId } = useParams();
+  const dispatch = useDispatch();
 
   const { token } = useSelector((state) => state.auth);
 
@@ -43,10 +45,12 @@ const AcceptRequest = () => {
       const response = await serverRequest(token).put(endpoint, data);
       if (response.data.status === "success") {
         setIsSubmitting(false);
+        dispatch({ type: SET_SUCCESS, payload: "Successful, Request Accepted" });
         push("/donation/history");
       }
     } catch (error) {
       setError(error.response.data.message || error.response.data.error);
+      dispatch({ type: SET_ERROR, payload: error });
       setIsSubmitting(false);
     }
   };
