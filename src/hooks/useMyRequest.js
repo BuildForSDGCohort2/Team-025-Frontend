@@ -41,7 +41,7 @@ const useMyRequest = () => {
     return () => {
       isMounted.current = false;
     };
-  }, [token, dispatch, myRequestId]);
+  }, [token, dispatch, requestId]);
 
   return { isLoading, myRequest };
 };
