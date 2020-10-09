@@ -5,6 +5,7 @@ import notificationReducer from "./notificationReducer";
 import sideBarReducer from "./sideBarReducer";
 import requestsReducer from "./requestsReducer";
 import myRequestsReducer from "./myRequestsReducer";
+import emailsReducer from "./emailsReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   notification: notificationReducer,
   sidebar: sideBarReducer,
   requests: requestsReducer,
-  myRequests: myRequestsReducer
+  myRequests: myRequestsReducer,
+  emails: emailsReducer
 });
 
 export default rootReducer;

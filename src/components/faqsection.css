@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+.faq {
+  text-align: left;
+  margin-top: 2rem;
+  display: block;
+  box-sizing: inherit;
+  font-size: 1rem;
+}
+.expandable {
+  margin: 1rem 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 2px solid rgba(161, 2, 2, 0.8);
+  border-radius: 0.15rem 0.3rem 0.3rem 0.15rem;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.expandable-header {
+  position: relative;
+  padding: 0 1.5rem;
+  border-radius: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 225ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.expandable-header::after {
+  content: "+";
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(161, 2, 2, 0.8);
+  min-height: 2.5rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  flex: 0;
+  border-radius: 3rem;
+  border: 1px solid rgba(161, 2, 2);
+  line-height: 2.4rem;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: background-color 225ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.expandable-header:hover {
+  background-color: rgb(44, 62, 80, 0.05);
+}
+.expandable-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 4rem;
+  margin: 0;
+  padding-right: 3rem;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(161, 2, 2, 0.4);
+  transition-property: color, height;
+  transition-duration: 225ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.expanded-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* height: 0; */
+  will-change: height;
+  transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.colapsed-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 0;
+  will-change: height;
+  transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.expandable-body {
+  padding: 0 1.5rem 1rem;
+}
+@media only screen and (max-width: 719px) {
+  .expandable-title {
+    font-size: 1rem;
+  }
+}

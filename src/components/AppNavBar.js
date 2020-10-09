@@ -13,8 +13,8 @@ const AppNavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse animation="false" id="responsive-navbar-nav" style={{ backgroundColor: "inherit" }}>
           <Nav className="ml-auto">
-            <Nav.Link href="#features">About</Nav.Link>
-            <Nav.Link href="#pricing">Faq</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/faq">Faq</Nav.Link>
             <Nav.Link href="/contactus">Contact</Nav.Link>
           </Nav>
           <Nav className="pl-0 ml-0 pl-md-5 ml-md-5">

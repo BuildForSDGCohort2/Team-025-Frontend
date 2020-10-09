@@ -2,33 +2,21 @@ import React from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./landinghero.css";
-import { Link } from "react-router-dom";
 import img from "../assets/images/undraw_team_work_k80m.svg";
+import emailjs from "emailjs-com";
 
 const Contactsection = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register } = useForm();
 
-  const onSubmit = async (data) => {
-    console.log("Submited");
-    // try {
-    //   setIsSubmitting(true);
-    //   setError('');
-    //   dispatch({type: AUTH_FETCH})
-    //   const endpoint = `${process.env.REACT_APP_API}/signup`;
-
-    //   const response = await serverRequest().post(endpoint, data);
-    //   if(response.data.status === 'success'){
-    //     setSuccess(true)
-    //     setIsSubmitting(false);
-    //   } else {
-    //     setError("registration error");
-    //     setIsSubmitting(false);
-    //   }
-    // } catch (error) {
-    //   const err = error.response.data.message || error.response.data.data;
-    //   setError(err);
-    //   setIsSubmitting(false);
-    // }
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log(e.target);
+    try {
+      const result = await emailjs.sendForm("gmail", "template_gf2appn", e.target, "user_obidpFtNW5NtkIU1Xr7gH");
+      console.log(result.text);
+    } catch (error) {
+      console.log(error.text);
+    }
   };
 
   return (
@@ -46,7 +34,7 @@ const Contactsection = () => {
             <Col sm="12" md="5" className="text-center text-md-left">
               <div className="mt-3 mb-5">
                 <h1 className="display-4">Contact us</h1>
-                <Form onSubmit={handleSubmit(onSubmit)}>
+                <Form onSubmit={onSubmit}>
                   <Form.Group controlId="formBasicName">
                     <Form.Control
                       type="text"
@@ -88,7 +76,7 @@ const Contactsection = () => {
                   </Form.Group>
 
                   <Button variant="danger" type="submit" className="mb-3 pt-2 pb-2" block>
-                    {"Submit"}
+                    {"SEND"}
                   </Button>
                 </Form>
               </div>
