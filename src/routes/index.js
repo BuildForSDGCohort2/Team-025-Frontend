@@ -24,6 +24,9 @@ import { Request } from '../views/request';
 import { AcceptRequest } from '../views/acceptrequest';
 import HospitalPrivateRoutes from './HospitalPrivateRoutes';
 import { HospitalDashboard } from '../views/hospitaldashboard';
+import { Contactus } from "../views/contactus";
+import { Faq } from "../views/faq";
+import { About } from '../views/about';
 
 const Routes = () => {
 	return (
@@ -46,6 +49,9 @@ const Routes = () => {
 				<PrivateRoutes exact={true} layout={UserLayout} path="/requests/:requestId" component={Request}/>
         <PrivateRoutes exact={true} layout={UserLayout} path="/profile" component={Profile}/>
         <PrivateRoutes exact={true} layout={UserLayout} path="/logout" component={LogOut}/>
+        <PublicRoutes exact={true} layout={DefaultLayout} path="/contactus" component={Contactus} />
+        <PublicRoutes exact={true} layout={DefaultLayout} path="/faq" component={Faq} />
+        <PublicRoutes exact={true} layout={DefaultLayout} path="/about" component={About} />
 
         <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/dashboard" component={HospitalDashboard}/>
 			</Switch>
@@ -53,32 +59,4 @@ const Routes = () => {
 	)
 }
 
-export default Routes
-
-// Donate now
-// -------------
-// show all individauls that requested and matches user blood group
-// if no individual or too far then book appointment to put in bank
-
-
-// request
-// -------------
-// show all banks that matches the user blood group
-// if no matches in bank or too far then put to public for donor help
-
-// appoint
-// ----------
-// type: bank/receiver
-
-// req
-// ----------
-// id
-// receiver
-// donor
-// bloodGroup
-// hospital
-// appointment
-// comment: urgent
-// status: open/closed
-// createdAt
-// updatedAt
+export default Routes;
