@@ -8,6 +8,7 @@ import {
   buildStyles
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { FrameMap } from '../../components';
 
 const Request = () => {
 
@@ -91,17 +92,7 @@ const Request = () => {
                   )}
                 </Col>
                 <Col xs="12" md="8">
-                  <iframe
-                    title={request.hospital.name}
-                    src={request.hospital.latitude}
-                    className="bn-maps"
-                    width="100%"
-                    frameBorder="0"
-                    style={{border:'0'}}
-                    allowFullScreen=""
-                    aria-hidden="false"
-                    tabIndex="0">
-                  </iframe>
+                  <FrameMap name={request.hospital.name} lat={request.hospital.latitude}/>
                 </Col>
               </Row>
           </Card>

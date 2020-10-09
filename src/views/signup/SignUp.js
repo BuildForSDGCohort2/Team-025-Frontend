@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row, Alert } from "react-bootstrap";
-import { Link, NavLink, useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { Link, NavLink } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
 import illustration from "../../assets/images/undraw_team_work_k80m.svg";
 import logo from '../../assets/images/logo_2.png'
@@ -11,8 +11,6 @@ import { AUTH_FETCH } from "../../store/types/authTypes";
 
 const SignUp = () => {
 
-  const { isAuthenticated } = useSelector(state => state.auth)
-  const { push } = useHistory();
   const dispatch = useDispatch();
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -22,10 +20,7 @@ const SignUp = () => {
 
   useEffect(() => {
     window.scrollTo(0,0);
-    if(isAuthenticated){
-      push('/dashboard');
-    }
-  }, [isAuthenticated, push])
+  }, [])
 
   const onSubmit = async data => {
     try {

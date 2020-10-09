@@ -7,3 +7,5 @@ export { default as LandingBenefits } from './LandingBenefits';
 export { default as SideBar } from './SideBar';
 export { default as TopBar } from './TopBar';
 export { default as AppointmentHistory } from './DonationHistory';
+export { default as HospitalSideBar } from './HospitalSideBar';
+export { default as FrameMap } from './FrameMap';

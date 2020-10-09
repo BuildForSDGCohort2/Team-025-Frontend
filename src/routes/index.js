@@ -5,7 +5,7 @@ import { Spinner } from 'react-bootstrap'
 import { Switch } from 'react-router-dom'
 import { SignUp } from '../views/signup'
 import { Home } from '../views/home'
-import { DefaultLayout, AuthLayout } from '../layouts'
+import { DefaultLayout, AuthLayout, HospitalLayout } from '../layouts'
 import { SignIn } from '../views/signin'
 import { ConfirmRegistration } from '../views/confirmregistration'
 import { CompleteRegistration } from '../views/completeregistration'
@@ -22,6 +22,8 @@ import { Profile } from '../views/profile';
 import { BookRequest } from '../views/bookrequest';
 import { Request } from '../views/request';
 import { AcceptRequest } from '../views/acceptrequest';
+import HospitalPrivateRoutes from './HospitalPrivateRoutes';
+import { HospitalDashboard } from '../views/hospitaldashboard';
 
 const Routes = () => {
 	return (
@@ -44,6 +46,8 @@ const Routes = () => {
 				<PrivateRoutes exact={true} layout={UserLayout} path="/requests/:requestId" component={Request}/>
         <PrivateRoutes exact={true} layout={UserLayout} path="/profile" component={Profile}/>
         <PrivateRoutes exact={true} layout={UserLayout} path="/logout" component={LogOut}/>
+
+        <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/dashboard" component={HospitalDashboard}/>
 			</Switch>
 		</Suspense>
 	)
