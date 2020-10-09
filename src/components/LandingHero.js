@@ -20,8 +20,8 @@ const LandingHero = () => {
             <Col sm="12" md="5" className="text-center text-md-left">
               <div className="mt-3 mb-5">
                 <h1 className="display-4" style={{ fontSize: "3.5rem" }}>
-                  Help Donate or <br />
-                  Get a Pant Today
+                  Help Donate <br />
+                  or Get a Pant Today
                 </h1>
                 <h3 className="mb-4">
                   Do something amazing and save lives <br />

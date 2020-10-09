@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Form, Row, Alert } from "react-bootstrap";
 import { Link, NavLink, useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
 import illustration from "../../assets/images/undraw_team_work_k80m.svg";
 import logo from '../../assets/images/logo_2.png'
@@ -17,14 +17,10 @@ const SignIn = () => {
 
   const { push } = useHistory();
   const dispatch = useDispatch();
-  const { isAuthenticated } = useSelector(state => state.auth)
 
   useEffect(() => {
     window.scrollTo(0,0);
-    if(isAuthenticated){
-      push('/dashboard');
-    }
-  }, [isAuthenticated, push])
+  }, [])
 
   const onSubmit = async data => {
     try {
@@ -35,7 +31,18 @@ const SignIn = () => {
       const response = await serverRequest().post(endpoint, data);
       if(response.data.status === 'success' ){
         dispatch({type: AUTH_RESOLVED, payload: response.data.data })
-        push('/dashboard');
+        const { role }= response.data.data;
+        switch (role) {
+          case 'hospital':
+            push('/h/dashboard');
+            break;
+          case 'admin':
+            push('/a/dashboard');
+            break;
+          default:
+            push('/dashboard');
+            break;
+        }
       } else {
         setError("invalid credentials");
         setIsSubmitting(false);

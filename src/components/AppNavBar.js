@@ -4,8 +4,9 @@ import { NavLink } from "react-router-dom";
 import "./nav.css";
 
 const AppNavBar = () => {
+
   return (
-    <Navbar collapseOnSelect expand="lg" animation="false" bg="danger" variant="dark" fixed="top" className="pt-3 pb-3">
+    <Navbar  collapseOnSelect expand="lg" animation="false" bg="danger" variant="dark" fixed="top" className="pt-3 pb-3">
       <Container>
         <Navbar.Brand as={NavLink} to="/" className="text-uppercase">
           BloodNation
@@ -13,9 +14,9 @@ const AppNavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse animation="false" id="responsive-navbar-nav" style={{ backgroundColor: "inherit" }}>
           <Nav className="ml-auto">
-            <Nav.Link href="#">About</Nav.Link>
-            <Nav.Link href="/faq">Faq</Nav.Link>
-            <Nav.Link href="/contactus">Contact</Nav.Link>
+            <Nav.Link as={NavLink} eventKey={1} to="/about">About</Nav.Link>
+            <Nav.Link as={NavLink} eventKey={2} to="/faq">Faq</Nav.Link>
+            <Nav.Link as={NavLink} eventKey={3} to="/contactus">Contact</Nav.Link>
           </Nav>
           <Nav className="pl-0 ml-0 pl-md-5 ml-md-5">
             <Nav.Link href="#deets" as={NavLink} to="/signin">
