@@ -24,7 +24,6 @@ import { Request } from "../views/request";
 import { AcceptRequest } from "../views/acceptrequest";
 import { Contactus } from "../views/contactus";
 import { Faq } from "../views/faq";
-import { About } from "../views/about";
 
 const Routes = () => {
   return (
@@ -49,7 +48,6 @@ const Routes = () => {
         <PrivateRoutes exact={true} layout={UserLayout} path="/logout" component={LogOut} />
         <PublicRoutes exact={true} layout={DefaultLayout} path="/contactus" component={Contactus} />
         <PublicRoutes exact={true} layout={DefaultLayout} path="/faq" component={Faq} />
-        <PublicRoutes exact={true} layout={DefaultLayout} path="/about" component={About} />
       </Switch>
     </Suspense>
   );

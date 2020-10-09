@@ -9,4 +9,3 @@ export { default as TopBar } from "./TopBar";
 export { default as AppointmentHistory } from "./DonationHistory";
 export { default as Contactsection } from "./Contactsection";
 export { default as FaqSection } from "./FaqSection";
-export { default as Aboutsection } from "./Aboutsection";
