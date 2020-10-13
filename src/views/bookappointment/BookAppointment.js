@@ -4,7 +4,7 @@ import { FrameMap } from '../../components'
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { serverRequest } from "../../utils/serverRequest";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import ngStatesObject from "../../utils/ngStatesObject";
 import { SET_ERROR, SET_SUCCESS } from "../../store/types/notificationTypes";
@@ -108,6 +108,9 @@ const BookAppointment = () => {
                       <option value="">- Pick a Hospital -</option>
                       {hospitals && hospitals.map((hospital, index) => <option key={index} value={hospital._id}>{hospital.name}</option>)}
                     </Form.Control>
+                    <Form.Text as={Link} to="/hospitals" target="_new" className="text-danger">
+                      <u>Check all registered hospitals.</u>
+                    </Form.Text>
                   </Form.Group>
                 ):null}
 

@@ -21,7 +21,7 @@ const TopBar = () => {
           <MdNotificationsNone size="2rem"/>
           <sup><Badge className="p-1" pill style={{fontSize: '1rem'}} variant="danger">9</Badge></sup>
           <NavDropdown  title={<HiUserCircle className="" size="2rem"/>}>
-            <NavDropdown.Item  as={Link} to="/profile">Profile</NavDropdown.Item>
+            <NavDropdown.Item  as={Link} to="/h/profile">Profile</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Notifications</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Get Help</NavDropdown.Item>
             <NavDropdown.Divider />
