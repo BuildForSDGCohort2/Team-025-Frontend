@@ -58,6 +58,32 @@ export const status = (value) => {
   }
 }
 
+export const appointmentStatus = (value) => {
+
+  const requestStatus = {
+    pending: 'pending',
+    accepted: 'accepted',
+    rejected: 'rejected',
+    approved: 'approved',
+    completed: 'completed'
+  };
+
+  switch (value) {
+    case requestStatus.pending:
+      return (<Badge pill variant="secondary">Pending</Badge>)
+    case requestStatus.accepted:
+        return (<Badge pill variant="primary">Accepted</Badge>)
+    case requestStatus.approved:
+        return (<Badge pill variant="info">Approved</Badge>)
+    case requestStatus.rejected:
+        return (<Badge pill variant="dabger">Declined</Badge>)
+    case requestStatus.completed:
+      return (<Badge pill variant="success">Completed</Badge>)
+    default:
+      return (<Badge pill variant="secondary">Pending</Badge>)
+  }
+}
+
 // export const regPatterns = {
 //   email: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 //   phone: /^[0-9]*$/,

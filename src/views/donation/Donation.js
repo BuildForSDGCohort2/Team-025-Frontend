@@ -73,20 +73,23 @@ const Donation = () => {
                     </small>
                   </p>
                   {appointment.beneficiary?(
-                    <Card className="mt-3 bg-primary text-white">
-                      <Card.Body className="d-flex">
-                        <HiUserCircle size="8rem"/>
-                        <div>
-                          <Badge variant="light">
-                            Blood Group: {appointment.beneficiary.bloodGroup}
-                          </Badge>
-                          <h5>{appointment.beneficiary.firstname} {appointment.beneficiary.lastname}</h5>
-                          <p className="mb-0 text-capitalize">{appointment.beneficiary.lg}, {appointment.beneficiary.state}</p>
-                          <p className="mb-0 text-capitalize">{appointment.beneficiary.email}</p>
-                          <p className="mb-0 text-capitalize">{appointment.beneficiary.phone}</p>
-                        </div>
-                      </Card.Body>
-                    </Card>
+                    <>
+                      <Badge variant="primary">Beneficiary</Badge>
+                      <Card className="mt-0 bg-primary text-white">
+                        <Card.Body className="d-flex">
+                          <HiUserCircle size="8rem"/>
+                          <div>
+                            <Badge variant="light">
+                              Blood Group: {appointment.beneficiary.bloodGroup}
+                            </Badge>
+                            <h5>{appointment.beneficiary.firstname} {appointment.beneficiary.lastname}</h5>
+                            <p className="mb-0 text-capitalize">{appointment.beneficiary.lg}, {appointment.beneficiary.state}</p>
+                            <p className="mb-0 text-capitalize">{appointment.beneficiary.email}</p>
+                            <p className="mb-0 text-capitalize">{appointment.beneficiary.phone}</p>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </>
                   ):(
                     <h5 className="text-center">Thank your for donating<br/>to our blood bank</h5>
                   )}

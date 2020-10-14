@@ -3,9 +3,10 @@ import { Row, Col, Card, Button, Badge } from "react-bootstrap";
 import { GiWaterDrop } from 'react-icons/gi';
 import { VscRequestChanges } from 'react-icons/vsc';
 import { useSelector } from 'react-redux';
-import '../dashboard/dashboard.css'
+import '../../dashboard/dashboard.css'
 import { Link } from "react-router-dom";
-import { serverRequest } from "../../utils/serverRequest";
+import { serverRequest } from "../../../utils/serverRequest";
+import { HospitalAppointmentHistory } from "../../../components/hospital";
 
 const HospitalDashboard = () => {
 
@@ -22,7 +23,7 @@ const HospitalDashboard = () => {
     window.scrollTo(0,0)
     const getStatistics = async () => {
       try {
-        const endpoint = `${process.env.REACT_APP_API}/users/statistics`;
+        const endpoint = `${process.env.REACT_APP_API}/hospitals/statistics`;
         const response = await serverRequest(token).get(endpoint);
         setStatistics(response.data.data)
       } catch (error) {
@@ -46,7 +47,7 @@ const HospitalDashboard = () => {
                 </div>
                 <div className="text-right">
                   <h6 className="text-muted">Blood Bank</h6>
-                  <h3>0</h3>
+                  <h3>{statistics && statistics.bank}</h3>
                 </div>
               </div>
               <hr/>
@@ -68,7 +69,7 @@ const HospitalDashboard = () => {
                 </div>
                 <div className="text-right">
                   <h6 className="text-muted">Pending</h6>
-                  <h3>{statistics && statistics.donations}</h3>
+                  <h3>{statistics && statistics.pending}</h3>
                 </div>
               </div>
               <hr/>
@@ -89,8 +90,8 @@ const HospitalDashboard = () => {
                   <GiWaterDrop className="my-auto mx-auto" color="white" size="3rem"/>
                 </div>
                 <div className="text-right">
-                  <h6 className="text-muted">Accepted</h6>
-                  <h3>{statistics && statistics.requests}</h3>
+                  <h6 className="text-muted">Approved</h6>
+                  <h3>{statistics && statistics.approved}</h3>
                 </div>
               </div>
               <hr/>
@@ -112,7 +113,7 @@ const HospitalDashboard = () => {
                 </div>
                 <div className="text-right">
                   <h6 className="text-muted">Completed</h6>
-                  <h3>{statistics && statistics.requests}</h3>
+                  <h3>{statistics && statistics.completed}</h3>
                 </div>
               </div>
               <hr/>
@@ -128,7 +129,7 @@ const HospitalDashboard = () => {
       </Row>
       <Row>
         <Col className="mt-4">
-
+          <HospitalAppointmentHistory/>
         </Col>
       </Row>
     </div>

@@ -50,7 +50,7 @@ const Request = () => {
                   {request.bloodOwnerId && request.bloodOwnerId._id?(
                     <h6 className="mb-3 text-center mt-2">
                       Donor Appointment Date:<br/>
-                      <span className="text-muted">{formatDateWithTime(request.appointment.date)}</span>
+                      <span className="text-muted">{formatDateWithTime(request.appointment && request.appointment.date)}</span>
                     </h6>
                   ):null}
                   <h6 className="text-center">PROGRESS</h6>
@@ -73,20 +73,23 @@ const Request = () => {
                     </small>
                   </p>
                   {request.bloodOwnerId && request.bloodOwnerId._id?(
-                    <Card className="mt-3">
-                      <Card.Body className="d-flex">
-                        <HiUserCircle size="8rem"/>
-                        <div>
-                          <Badge variant="danger">
-                            Blood Group: {request.bloodGroup}
-                          </Badge>
-                          <h5>{request.bloodOwnerId.firstname} {request.bloodOwnerId.lastname}</h5>
-                          <p className="mb-0 text-capitalize">{request.bloodOwnerId.lg}, {request.bloodOwnerId.state}</p>
-                          <p className="mb-0 text-capitalize">{request.bloodOwnerId.email}</p>
-                          <p className="mb-0 text-capitalize">{request.bloodOwnerId.phone}</p>
-                        </div>
-                      </Card.Body>
-                    </Card>
+                    <>
+                      <Badge variant="primary">Donor</Badge>
+                      <Card className="mt-0">
+                        <Card.Body className="d-flex">
+                          <HiUserCircle size="8rem"/>
+                          <div>
+                            <Badge variant="danger">
+                              Blood Group: {request.bloodGroup}
+                            </Badge>
+                            <h5>{request.bloodOwnerId.firstname} {request.bloodOwnerId.lastname}</h5>
+                            <p className="mb-0 text-capitalize">{request.bloodOwnerId.lg}, {request.bloodOwnerId.state}</p>
+                            <p className="mb-0 text-capitalize">{request.bloodOwnerId.email}</p>
+                            <p className="mb-0 text-capitalize">{request.bloodOwnerId.phone}</p>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </>
                   ):(
                     <h5 className="text-center">Your request is still pending<br/>please exercise patience</h5>
                   )}

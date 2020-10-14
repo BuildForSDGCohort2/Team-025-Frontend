@@ -23,10 +23,14 @@ import { BookRequest } from '../views/bookrequest';
 import { Request } from '../views/request';
 import { AcceptRequest } from '../views/acceptrequest';
 import HospitalPrivateRoutes from './HospitalPrivateRoutes';
-import { HospitalDashboard } from '../views/hospitaldashboard';
+import { HospitalDashboard } from '../views/hospital/hospitaldashboard';
 import { Contactus } from "../views/contactus";
 import { Faq } from "../views/faq";
 import { About } from '../views/about';
+import { HospitalDonation } from '../views/hospital/donation';
+import { HospitalDonations } from '../views/hospital/donations';
+import { Bank, Pant } from '../views/hospital/bank';
+import { HospitalList } from '../views/hospitallist';
 
 const Routes = () => {
 	return (
@@ -48,12 +52,18 @@ const Routes = () => {
 				<PrivateRoutes exact={true} layout={UserLayout} path="/requests/accept/:requestId" component={AcceptRequest}/>
 				<PrivateRoutes exact={true} layout={UserLayout} path="/requests/:requestId" component={Request}/>
         <PrivateRoutes exact={true} layout={UserLayout} path="/profile" component={Profile}/>
+        <PrivateRoutes exact={true} layout={UserLayout} path="/hospitals" component={HospitalList}/>
         <PrivateRoutes exact={true} layout={UserLayout} path="/logout" component={LogOut}/>
         <PublicRoutes exact={true} layout={DefaultLayout} path="/contactus" component={Contactus} />
         <PublicRoutes exact={true} layout={DefaultLayout} path="/faq" component={Faq} />
         <PublicRoutes exact={true} layout={DefaultLayout} path="/about" component={About} />
 
         <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/dashboard" component={HospitalDashboard}/>
+        <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/donation/:appointmentId" component={HospitalDonation}/>
+        <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/donations/" component={HospitalDonations}/>
+        <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/profile/" component={Profile}/>
+        <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/bank/" component={Bank}/>
+        <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/bank/:pantId" component={Pant}/>
 			</Switch>
 		</Suspense>
 	)

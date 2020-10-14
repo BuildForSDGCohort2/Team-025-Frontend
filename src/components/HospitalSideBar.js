@@ -47,21 +47,17 @@ const HospitalSideBar = () => {
           <MdDashboard className="mr-4" size="1.5rem" />
           Dashboard
         </Nav.Link>
-        <Nav.Link as={NavLink} activeClassName="active" onClick={() => dispatch({ type: SET_SIDEBAR })} to="/donation">
+        <Nav.Link as={NavLink} activeClassName="active" onClick={() => dispatch({ type: SET_SIDEBAR })} to="/h/donations">
           <GiWaterDrop className="mr-4" size="1.5rem" />
           Appointments
         </Nav.Link>
-        <Nav.Link>
+        <Nav.Link as={NavLink} to="/h/bank" activeClassName="active" onClick={() => dispatch({ type: SET_SIDEBAR })}>
           <RiBankCardLine className="mr-4" size="1.5rem" />
           My Bank
         </Nav.Link>
-        <Nav.Link as={NavLink} to="/profile">
+        <Nav.Link as={NavLink} to="/h/profile" activeClassName="active" onClick={() => dispatch({ type: SET_SIDEBAR })}>
           <RiBankCardLine className="mr-4" size="1.5rem" />
           Profile
-        </Nav.Link>
-        <Nav.Link>
-          <GiWaterDrop className="mr-4" size="1.5rem" />
-          Get Help
         </Nav.Link>
 
         <div className="bg-danger w-75 mb-3 mt-1 mx-auto" style={{ height: "0.1rem", opacity: "0.3" }}></div>
