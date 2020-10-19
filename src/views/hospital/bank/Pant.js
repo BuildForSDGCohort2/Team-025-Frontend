@@ -21,7 +21,7 @@ const Pant = () => {
 
   const { isLoading, pant } = useBank();
   const { register, watch, handleSubmit } = useForm();
-  const { requests } = useHospitalRequests();
+  const { isLoading: isLoadingReq, requests: req } = useHospitalRequests();
 
   const { token } = useSelector((state) => state.auth);
   const { message } = useSelector((state) => state.notification);
@@ -30,7 +30,7 @@ const Pant = () => {
     window.scrollTo(0, 0);
   }, [message]);
 
-  if (isLoading) {
+  if (isLoading || isLoadingReq) {
     return (
       <Spinner animation="border" role="status">
         <span className="sr-only">Loading...</span>
@@ -45,6 +45,23 @@ const Pant = () => {
       </div>
     );
   }
+
+  const compartibility = {
+    'A+': 'A+,A-,O+,O-',
+    'A-': 'A-,O-',
+    'B+': 'B+,B-,O+,O-',
+    'B-': 'B-,O-',
+    'AB+': 'A+,A-,O+,O-,B+,B-,AB+,AB-',
+    'AB-': 'AB-,A-,B-,O-',
+    'O+': 'O+,O-',
+    'O-': 'O-'
+  };
+
+  const condition = compartibility[pant.bloodGroup];
+
+  console.log(condition)
+
+  const requests = req.filter(reqt => condition.includes(reqt.bloodReceiverId.bloodGroup))
 
   const onSubmit = async (data) => {
     if (window.confirm("Confirm Blood Pant Update")) {
@@ -111,7 +128,7 @@ const Pant = () => {
                   </small>
                   <br />
                 </p>
-                {pant.beneficiary ? (
+                {pant.beneficiary && pant.status !== 'AVAILABLE'? (
                   <>
                     <Badge variant="primary">Beneficiary</Badge>
                     <Card className="bg-primaryy text-whitee">

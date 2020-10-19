@@ -31,6 +31,7 @@ import { HospitalDonation } from '../views/hospital/donation';
 import { HospitalDonations } from '../views/hospital/donations';
 import { Bank, Pant } from '../views/hospital/bank';
 import { HospitalList } from '../views/hospitallist';
+import { ResetPassword, ResetPasswordConfirm } from '../views/resetpassword';
 
 const Routes = () => {
 	return (
@@ -38,6 +39,8 @@ const Routes = () => {
 			<Switch>
 				<PublicRoutes exact={true} layout={AuthLayout} path="/signup" component={SignUp}/>
 				<PublicRoutes exact={true} layout={AuthLayout} path="/signin" component={SignIn}/>
+				<PublicRoutes exact={true} layout={AuthLayout} path="/reset" component={ResetPassword}/>
+				<PublicRoutes exact={true} layout={AuthLayout} path="/reset/password" component={ResetPasswordConfirm}/>
 				<PublicRoutes exact={true} layout={AuthLayout} path="/confirmregistration" component={ConfirmRegistration}/>
 				<PublicRoutes exact={true} layout={AuthLayout} path="/completeregistration" component={CompleteRegistration}/>
 				<PublicRoutes exact={true} layout={AuthLayout} path="/verification/:code" component={Verification}/>

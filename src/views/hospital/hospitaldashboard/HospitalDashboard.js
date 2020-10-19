@@ -53,7 +53,7 @@ const HospitalDashboard = () => {
               <hr/>
               <div className="d-flex justify-content-between align-items-center">
                 <small>Available in Bank</small>
-                <Button variant="danger" as={Link} to="/profile" size="sm">
+                <Button variant="danger" as={Link} to="/h/bank" size="sm">
                   Bank
                 </Button>
               </div>
@@ -75,7 +75,7 @@ const HospitalDashboard = () => {
               <hr/>
               <div className="d-flex justify-content-between align-items-center">
                 <small>Total Pending</small>
-                <Button variant="danger" as={Link} to="/donation" size="sm">
+                <Button variant="danger" as={Link} to="/h/donations" size="sm">
                   Appointments
                 </Button>
               </div>
@@ -97,7 +97,7 @@ const HospitalDashboard = () => {
               <hr/>
               <div className="d-flex justify-content-between align-items-center">
                 <small>Total Accepted</small>
-                <Button as={Link} to="/requests" variant="danger" size="sm">
+                <Button as={Link} to="/h/donations" variant="danger" size="sm">
                   Appointments
                 </Button>
               </div>
@@ -119,7 +119,7 @@ const HospitalDashboard = () => {
               <hr/>
               <div className="d-flex justify-content-between align-items-center">
                 <small>Total Completed</small>
-                <Button as={Link} to="/requests" variant="danger" size="sm">
+                <Button as={Link} to="/h/donations" variant="danger" size="sm">
                   Appointments
                 </Button>
               </div>
