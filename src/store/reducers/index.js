@@ -7,6 +7,7 @@ import requestsReducer from "./requestsReducer";
 import myRequestsReducer from "./myRequestsReducer";
 import emailsReducer from "./emailsReducer";
 import banksReducer from "./banksReducer";
+import hospitalsReducer from "./hospitalsReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   requests: requestsReducer,
   myRequests: myRequestsReducer,
   emails: emailsReducer,
-  banks: banksReducer
+  banks: banksReducer,
+  hospitals: hospitalsReducer
 });
 
 export default rootReducer;
