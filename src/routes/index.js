@@ -32,6 +32,10 @@ import { HospitalDonations } from '../views/hospital/donations';
 import { Bank, Pant } from '../views/hospital/bank';
 import { HospitalList } from '../views/hospitallist';
 import { ResetPassword, ResetPasswordConfirm } from '../views/resetpassword';
+import AdminLayout from '../layouts/AdminLayout';
+import { AdminDashboard } from '../views/admin/admindashboard';
+import AdminPrivateRoutes from './AdminPrivateRoutes';
+import { CreateHospital, Hospitals } from '../views/admin/hospitals';
 
 const Routes = () => {
 	return (
@@ -67,6 +71,10 @@ const Routes = () => {
         <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/profile/" component={Profile}/>
         <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/bank/" component={Bank}/>
         <HospitalPrivateRoutes exact={true} layout={HospitalLayout} path="/h/bank/:pantId" component={Pant}/>
+
+        <AdminPrivateRoutes exact={true} layout={AdminLayout} path="/a/dashboard" component={AdminDashboard}/>
+        <AdminPrivateRoutes exact={true} layout={AdminLayout} path="/a/hospitals" component={Hospitals}/>
+        <AdminPrivateRoutes exact={true} layout={AdminLayout} path="/a/hospitals/create-hospital" component={CreateHospital}/>
 			</Switch>
 		</Suspense>
 	)
